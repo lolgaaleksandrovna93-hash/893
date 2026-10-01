@@ -1,6 +1,7 @@
 package ru.netology.rest;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions; // Не забудьте этот импорт
 
 import static io.restassured.RestAssured.given;
 
@@ -14,8 +15,11 @@ class MobileBankApiTestV1 {
                 // Выполняемые действия
                 .when()
                 .get("/demo/accounts")
-                // Проверки: намеренно ставим неверный код, чтобы тест упал
+                // Проверки
                 .then()
-                .statusCode(404); 
+                .statusCode(200);
+
+        // Намеренно вызываем ошибку, чтобы тест упал
+        Assertions.fail("Тест намеренно провален для проверки CI");
     }
 }
