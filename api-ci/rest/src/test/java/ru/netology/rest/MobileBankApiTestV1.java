@@ -17,5 +17,8 @@ class MobileBankApiTestV1 {
                 // Проверки
                 .then()
                 .statusCode(200);
+        @Test
+    void testAlwaysFail() {
+        Assertions.fail("This test is intentionally failing to verify CI");
     }
 }
