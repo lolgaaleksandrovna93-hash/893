@@ -48,6 +48,7 @@ public class DbInteraction {
           var count = rs.getInt(1);
           // TODO: использовать
           System.out.println(count);
+          Assert.assertEquals(2, count);
         }
       }
 
