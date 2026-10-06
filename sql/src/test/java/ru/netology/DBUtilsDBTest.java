@@ -14,17 +14,17 @@ public class DBUtilsDBTest {
 
     @BeforeEach
     void setUp() {
-        SQLHelper.updateUsers(generateRandomLogin7(), generateRandomPassword());
+        SQLHelper.updateUsers(generateRandomLogin(), generateRandomPassword());
         SQLHelper.updateUsers(generateRandomLogin(), generateRandomPassword());
     }
 
     @Test
     void stubTest() {
-        var count = countUsers(47);
+        var count = countUsers();
         log.info(String.valueOf(count));
-        
         var first = getFirstUser();
         log.info(first.toString());
         var all = getUsers();
         log.info(all.toString());
-    
+    }
+}
