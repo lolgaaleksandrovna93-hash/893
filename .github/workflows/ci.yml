@@ -20,9 +20,6 @@ jobs:
           java-version: '17'
           cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
       - name: Build application
         run: ./gradlew build
 
@@ -34,3 +31,21 @@ jobs:
 
       - name: Run tests
         run: ./gradlew test
+
+      - name: Start MySQL (sql homework)
+        run: docker compose up -d
+        working-directory: sql
+
+      - name: Wait for MySQL
+        run: sleep 30
+
+      - name: Run sql tests
+        run: |
+          chmod +x gradlew
+          ./gradlew test
+        working-directory: sql
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v
+        working-directory: sql
