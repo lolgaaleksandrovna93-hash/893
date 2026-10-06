@@ -1,12 +1,3 @@
-package ru.netology;
-
-import com.github.javafaker.Faker;
-import lombok.SneakyThrows;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import java.sql.DriverManager;
-
 public class DbInteraction {
   @BeforeEach
   @SneakyThrows
@@ -57,4 +48,11 @@ public class DbInteraction {
         while (rs.next()) {
           var id = rs.getInt("id");
           var number = rs.getString("number");
-
+          var balanceInKopecks = rs.getInt("balance_in_kopecks");
+          // TODO: сложить всё в список
+          System.out.println(id + " " + number + " " + balanceInKopecks);
+        }
+      }
+    }
+  }
+}
